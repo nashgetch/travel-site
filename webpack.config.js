@@ -1,23 +1,23 @@
+var path = require('path');
+
 module.exports = {
-  entry: "./app/assets/scripts/app.js",
+  entry: "./app/assets/scripts/App.js",
   output: {
-    path: "./app/temp/scripts",
-    filename: "app.js"
+    path: path.resolve(__dirname, "./app/temp/scripts"),
+    filename: "App.js"
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: 'babel',
         query: {
-          presets: ['es2015']
+          presets: ['es2015']   
         },
+        test: /\.js$/,
+        exclude: /node_modules/
         
       }
     ]
-  },
-  resolve: {
-    extensions: ['', '.js', '.es6']
-  },
+  }
 }
+// https://github.com/nashgetch/ilts2
